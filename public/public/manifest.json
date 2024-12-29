@@ -1,0 +1,55 @@
+{
+  "short_name": "Web ACT",
+  "name": "Web ACT 浏览器插件",
+  "description": "Web ACT浏览器插件，用于在浏览器中记录和查看任务。",
+  "manifest_version": 3,
+  "version": "1.0.2.1",
+  "background": {
+    "service_worker": "static/js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["static/js/content.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "sidePanel",
+    "contextMenus",
+    "nativeMessaging",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+      {
+        "resources": [ "windowOpen.js" ],
+        "matches": ["<all_urls>"]
+      },
+      {
+        "resources": [ "*.css" ],
+        "matches": ["<all_urls>"]
+      },
+      {
+        "resources": [ "static/css/*" ],
+        "matches": ["<all_urls>"]
+      }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "favicon.png",
+      "32": "favicon.png",
+      "48": "favicon.png",
+      "128": "favicon.png"
+    },
+    "default_title": "Web ACT"
+  },
+  "icons": {
+    "16": "favicon.png",
+    "32": "favicon.png",
+    "48": "favicon.png",
+    "128": "favicon.png"
+  }
+}
